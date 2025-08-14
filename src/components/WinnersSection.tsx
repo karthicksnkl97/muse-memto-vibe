@@ -1,5 +1,25 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+
+const pastWinners = [
+  {
+    emoji: "😂",
+    username: "@PuneMemer",
+    memeTitle: "When you see FC Road traffic",
+    likes: "1,247 likes"
+  },
+  {
+    emoji: "🤣", 
+    username: "@VimanNagarViral",
+    memeTitle: "Pune weather vs my mood",
+    likes: "2,156 likes"
+  },
+  {
+    emoji: "💯",
+    username: "@KPFunnyGuy", 
+    memeTitle: "Biryani vs Vada Pav debate",
+    likes: "3,421 likes"
+  }
+];
 
 export const WinnersSection = () => {
   return (
@@ -13,24 +33,18 @@ export const WinnersSection = () => {
           100+ memes uploaded last week. Don't miss your chance!
         </p>
         
-        <Card className="bg-card/80 border-border shadow-card max-w-4xl mx-auto">
-          <CardContent className="p-12 text-center space-y-8">
-            <div className="text-6xl">😂</div>
-            <h3 className="text-2xl font-bold text-card-foreground">
-              Join the Hall of Fame
-            </h3>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Your meme could be the next viral sensation! See your creation featured across 
-              Pune's social media and win amazing prizes.
-            </p>
-            <Button 
-              size="lg"
-              className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 text-lg font-semibold rounded-full shadow-glow transition-smooth hover:scale-105"
-            >
-              🚀 Start Creating Now
-            </Button>
-          </CardContent>
-        </Card>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          {pastWinners.map((winner, index) => (
+            <Card key={index} className="bg-card/80 border-border shadow-card transition-smooth hover:scale-105">
+              <CardContent className="p-6 text-center space-y-4">
+                <div className="text-5xl mb-4">{winner.emoji}</div>
+                <h3 className="text-lg font-bold text-card-foreground">Winner: {winner.username}</h3>
+                <p className="text-muted-foreground italic">"{winner.memeTitle}"</p>
+                <p className="text-green-500 font-semibold">{winner.likes}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
     </section>
   );

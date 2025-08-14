@@ -6,28 +6,32 @@ const prizes = [
     title: "Grand Prize",
     amount: "₹1,00,000",
     subtitle: "+ feature on Memto socials",
-    gradient: "gradient-accent"
+    gradientClass: "gradient-orange",
+    textColor: "text-white"
   },
   {
     icon: "🎯",
     title: "Weekly Winner",
     amount: "₹500–₹1,000",
     subtitle: "Amazon voucher",
-    gradient: "gradient-primary"
+    gradientClass: "gradient-purple",
+    textColor: "text-white"
   },
   {
     icon: "🍕",
     title: "Runner-Up",
     amount: "Free meals",
     subtitle: "& café vouchers",
-    gradient: "gradient-primary"
+    gradientClass: "gradient-green",
+    textColor: "text-white"
   },
   {
     icon: "🎁",
     title: "Every Participant",
     amount: "Guaranteed café discount",
     subtitle: "(10–20%)",
-    gradient: "gradient-accent"
+    gradientClass: "gradient-blue",
+    textColor: "text-white"
   }
 ];
 
@@ -43,15 +47,15 @@ export const PrizesSection = () => {
           {prizes.map((prize, index) => (
             <Card 
               key={index} 
-              className="bg-card/80 border-border shadow-card transition-smooth hover:scale-105 hover:shadow-glow"
+              className={`${prize.gradientClass} border-0 shadow-card transition-smooth hover:scale-105 hover:shadow-glow rounded-2xl`}
             >
               <CardContent className="p-6 text-center space-y-4">
                 <div className="text-4xl mb-4">{prize.icon}</div>
-                <h3 className="text-xl font-bold text-card-foreground">{prize.title}</h3>
-                <div className={`${prize.gradient} bg-clip-text text-transparent text-2xl font-bold`}>
+                <h3 className={`text-xl font-bold ${prize.textColor}`}>{prize.title}</h3>
+                <div className={`${prize.textColor} text-2xl font-bold`}>
                   {prize.amount}
                 </div>
-                <p className="text-muted-foreground text-sm">{prize.subtitle}</p>
+                <p className={`${prize.textColor} text-sm opacity-90`}>{prize.subtitle}</p>
               </CardContent>
             </Card>
           ))}
