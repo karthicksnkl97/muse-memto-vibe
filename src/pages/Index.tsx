@@ -1,12 +1,21 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { FloatingElements } from "@/components/FloatingElements";
+import { HeroSection } from "@/components/HeroSection";
+import { PrizesSection } from "@/components/PrizesSection";
+import { HowItWorksSection } from "@/components/HowItWorksSection";
+import { WeeklyThemesSection } from "@/components/WeeklyThemesSection";
+import { PartnersSection } from "@/components/PartnersSection";
+import { WinnersSection } from "@/components/WinnersSection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="relative">
+      <FloatingElements />
+      <HeroSection />
+      <PrizesSection />
+      <HowItWorksSection />
+      <WeeklyThemesSection />
+      <PartnersSection />
+      <WinnersSection />
     </div>
   );
 };
